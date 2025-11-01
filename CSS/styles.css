@@ -103,3 +103,79 @@ a:hover {
     color: #2c3a81 !important; 
     text-decoration: none !important; /* <--- เอาขีดเส้นใต้ออกเมื่อชี้ */
 }
+
+/* ======================================================== */
+/* 9. MEDIA QUERIES (ปรับความสวยงามสำหรับ Mobile และ Tablet) */
+/* โค้ดส่วนนี้จะไม่เปลี่ยนแปลงสไตล์หลักที่คุณกำหนดไว้ แต่จะปรับแค่ขนาด/การจัดวางเท่านั้น */
+/* ======================================================== */
+
+/* เมื่อหน้าจอมีความกว้างน้อยกว่า 992px (Tablet และ Mobile) */
+@media (max-width: 991.98px) {
+    /* ปรับระยะห่างด้านข้างของเนื้อหาหลัก */
+    .container-lg {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+
+/* เมื่อหน้าจอมีความกว้างน้อยกว่า 768px (Mobile Devices) */
+@media (max-width: 767.98px) {
+    
+    /* 1. ส่วนหัว (Header) */
+    .resume-header {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    /* ปรับขนาดตัวอักษรของชื่อ-นามสกุล (h1) ให้เล็กลง เพื่อไม่ให้ล้นจอ */
+    .display-3 {
+        font-size: 2.5rem; 
+        text-align: center !important;
+    }
+    .resume-header .lead {
+        text-align: center !important;
+    }
+    
+    /* จัดให้รูปโปรไฟล์อยู่ตรงกลางด้านบน */
+    .img-profile {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 20px auto; /* จัดกลางและเพิ่มระยะห่างด้านล่าง */
+        display: block;
+    }
+
+    /* ปรับขนาดตัวอักษรของประวัติย่อให้เล็กลง */
+    .resume-header p.mt-4.fs-5 {
+        font-size: 1rem !important;
+        text-align: center !important;
+    }
+    
+    /* 2. หัวข้อ (Sections) */
+    .section-title {
+        font-size: 1.75rem; 
+        text-align: center !important; /* จัดให้อยู่ตรงกลางบนมือถือ */
+    }
+
+    /* 3. รายการต่างๆ (Employment/Education Item) */
+    .resume-item {
+        /* ลบเส้นแบ่งด้านซ้ายและ Padding บนมือถือ */
+        border-left: none;
+        padding-left: 0;
+        margin-left: 0;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* แทนด้วยเส้นแบ่งด้านล่าง */
+    }
+    
+    /* จัดให้วันที่อยู่บรรทัดใหม่แทนที่จะอยู่ด้านขวา */
+    .resume-date {
+        display: block;
+        margin-top: 5px;
+        font-style: italic;
+    }
+
+    /* 4. Contact List */
+    .contact-list li {
+        font-size: 0.95rem;
+    }
+}
