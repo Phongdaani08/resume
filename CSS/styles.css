@@ -11,7 +11,7 @@
 /* 2. การตั้งค่า Body และ Container */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--bg-light);
+    background-color: var(--bg-light) !important; /* บังคับใช้สีขาว */
     color: var(--text-dark);
     padding-top: 56px !important; 
 }
@@ -21,7 +21,8 @@ body {
 
 /* 3. Navbar Customization (เน้นความเรียบง่าย) */
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.75);
+    /* นี่คือโค้ดที่ทำให้ตัวอักษรในเมนูเป็นสีขาวเทาอ่อน */
+    color: rgba(255, 255, 255, 0.75); 
     font-weight: 500;
 }
 .navbar-dark .navbar-nav .nav-link:hover {
@@ -32,12 +33,25 @@ body {
 .text-accent {
     color: var(--primary-color) !important;
 }
+
+/* **แก้ไข: ลบ !important ออกเพื่อให้สีใน Navbar กลับเป็นค่าเริ่มต้น** */
 a {
-    color: var(--primary-color);
+    color: var(--primary-color); 
     transition: color 0.3s;
 }
 a:hover {
-    color: #2c3a81; /* สีเข้มขึ้นเมื่อ Hover */
+    color: #2c3a81 !important; 
+}
+
+/* สไตล์ลิงก์ที่ต้องการขีดเส้นใต้ (Custom Class) */
+.text-decoration-none {
+    color: var(--primary-color) !important; 
+    text-decoration: underline !important; 
+    transition: color 0.3s;
+}
+.text-decoration-none:hover {
+    color: #2c3a81 !important; 
+    text-decoration: none !important; 
 }
 
 /* 5. องค์ประกอบหัวข้อ (Typography) */
@@ -47,11 +61,14 @@ a:hover {
 .subheading {
     font-weight: 600;
     color: var(--text-secondary) !important;
+    margin-top: 1.5rem; 
 }
 .section-title {
     font-weight: 700;
     color: var(--text-dark);
-    border-color: rgba(63, 81, 181, 0.2) !important;
+    border-bottom: 2px solid rgba(63, 81, 181, 0.15) !important;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 /* 6. รูปโปรไฟล์ (Circular Photo Requirement) */
@@ -59,8 +76,8 @@ a:hover {
     width: 200px;
     height: 200px;
     object-fit: cover;
-    border: 5px solid rgba(0, 0, 0, 0.05); /* เส้นขอบบางๆ ให้ดูคมชัด */
-    border-radius: 50% !important; /* **ทำเป็นวงกลมตามโจทย์** */
+    border: 5px solid rgba(0, 0, 0, 0.05); 
+    border-radius: 50% !important; 
 }
 
 /* 7. จัดสไตล์ Section และ Item */
@@ -69,21 +86,23 @@ a:hover {
     padding-bottom: 2rem;
 }
 .section-divider {
-    border-top: 1px solid rgba(0, 0, 0, 0.1); /* เส้นแบ่งบางๆ */
+    border-top: 1px solid rgba(0, 0, 0, 0.1); 
+    opacity: 0.5;
 }
 .resume-item {
     padding-bottom: 0.5rem;
-    border-left: 3px solid rgba(0, 0, 0, 0.05); /* เส้นแบ่งซ้ายบางๆ */
+    border-left: 3px solid rgba(0, 0, 0, 0.05); 
     padding-left: 15px;
+    margin-bottom: 20px;
 }
 .resume-date {
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--primary-color) !important; 
 }
 
 /* 8. จัดสไตล์ช่องทางการติดต่อ (Ordered List) */
 .contact-list {
-    list-style-type: none; /* เอาตัวเลขของ ol ออก เพื่อใช้ไอคอนแทน */
+    list-style-type: none; 
     padding-left: 0;
 }
 .contact-list li {
@@ -94,24 +113,13 @@ a:hover {
     width: 20px;
 }
 
-.text-decoration-none {
-    color: var(--primary-color) !important; 
-    text-decoration: underline !important; /* <--- บังคับให้มีขีดเส้นใต้ */
-    transition: color 0.3s;
-}
-.text-decoration-none:hover {
-    color: #2c3a81 !important; 
-    text-decoration: none !important; /* <--- เอาขีดเส้นใต้ออกเมื่อชี้ */
-}
 
 /* ======================================================== */
 /* 9. MEDIA QUERIES (ปรับความสวยงามสำหรับ Mobile และ Tablet) */
-/* โค้ดส่วนนี้จะไม่เปลี่ยนแปลงสไตล์หลักที่คุณกำหนดไว้ แต่จะปรับแค่ขนาด/การจัดวางเท่านั้น */
 /* ======================================================== */
 
 /* เมื่อหน้าจอมีความกว้างน้อยกว่า 992px (Tablet และ Mobile) */
 @media (max-width: 991.98px) {
-    /* ปรับระยะห่างด้านข้างของเนื้อหาหลัก */
     .container-lg {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -128,9 +136,9 @@ a:hover {
         padding-right: 1rem !important;
     }
 
-    /* ปรับขนาดตัวอักษรของชื่อ-นามสกุล (h1) ให้เล็กลง เพื่อไม่ให้ล้นจอ */
-    .display-3 {
-        font-size: 2.5rem; 
+    /* **การแก้ไขสำคัญ:** ใช้ Specificity สูงสุด เพื่อบังคับให้ขนาดชื่อเล็กลงและอยู่ตรงกลางบนมือถือ */
+    .resume-header h1.display-3 {
+        font-size: 2.5rem !important; 
         text-align: center !important;
     }
     .resume-header .lead {
@@ -141,7 +149,7 @@ a:hover {
     .img-profile {
         width: 150px;
         height: 150px;
-        margin: 0 auto 20px auto; /* จัดกลางและเพิ่มระยะห่างด้านล่าง */
+        margin: 0 auto 20px auto; 
         display: block;
     }
 
@@ -154,7 +162,7 @@ a:hover {
     /* 2. หัวข้อ (Sections) */
     .section-title {
         font-size: 1.75rem; 
-        text-align: center !important; /* จัดให้อยู่ตรงกลางบนมือถือ */
+        text-align: center !important; 
     }
 
     /* 3. รายการต่างๆ (Employment/Education Item) */
