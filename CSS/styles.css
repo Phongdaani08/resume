@@ -1,0 +1,105 @@
+/* ในโฟลเดอร์ CSS/styles.css */
+
+/* 1. กำหนดสีและฟอนต์หลัก */
+:root {
+    --primary-color: #3f51b5; /* Muted Blue/Indigo: เน้นความน่าเชื่อถือ */
+    --text-dark: #212529;
+    --text-secondary: #6c757d;
+    --bg-light: #ffffff; /* ขาวสะอาดตา */
+}
+
+/* 2. การตั้งค่า Body และ Container */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    padding-top: 56px !important; 
+}
+.container-lg {
+    max-width: 1000px !important;
+}
+
+/* 3. Navbar Customization (เน้นความเรียบง่าย) */
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--bg-light);
+}
+
+/* 4. สีเน้นและสีข้อความ */
+.text-accent {
+    color: var(--primary-color) !important;
+}
+a {
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+a:hover {
+    color: #2c3a81; /* สีเข้มขึ้นเมื่อ Hover */
+}
+
+/* 5. องค์ประกอบหัวข้อ (Typography) */
+.display-3 {
+    font-size: 3.5rem;
+}
+.subheading {
+    font-weight: 600;
+    color: var(--text-secondary) !important;
+}
+.section-title {
+    font-weight: 700;
+    color: var(--text-dark);
+    border-color: rgba(63, 81, 181, 0.2) !important;
+}
+
+/* 6. รูปโปรไฟล์ (Circular Photo Requirement) */
+.img-profile {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid rgba(0, 0, 0, 0.05); /* เส้นขอบบางๆ ให้ดูคมชัด */
+    border-radius: 50% !important; /* **ทำเป็นวงกลมตามโจทย์** */
+}
+
+/* 7. จัดสไตล์ Section และ Item */
+.resume-section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.section-divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* เส้นแบ่งบางๆ */
+}
+.resume-item {
+    padding-bottom: 0.5rem;
+    border-left: 3px solid rgba(0, 0, 0, 0.05); /* เส้นแบ่งซ้ายบางๆ */
+    padding-left: 15px;
+}
+.resume-date {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+/* 8. จัดสไตล์ช่องทางการติดต่อ (Ordered List) */
+.contact-list {
+    list-style-type: none; /* เอาตัวเลขของ ol ออก เพื่อใช้ไอคอนแทน */
+    padding-left: 0;
+}
+.contact-list li {
+    margin-bottom: 10px;
+}
+.contact-list i {
+    color: var(--primary-color);
+    width: 20px;
+}
+
+.text-decoration-none {
+    color: var(--primary-color) !important; 
+    text-decoration: underline !important; /* <--- บังคับให้มีขีดเส้นใต้ */
+    transition: color 0.3s;
+}
+.text-decoration-none:hover {
+    color: #2c3a81 !important; 
+    text-decoration: none !important; /* <--- เอาขีดเส้นใต้ออกเมื่อชี้ */
+}
